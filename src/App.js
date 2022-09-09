@@ -1,3 +1,5 @@
+import EmployeeContextProvider from "./Contexts/EmployeeContext";
+
 import EmployeeList from "./Components/EmployeeList";
 
 function App() {
@@ -17,7 +19,10 @@ function App() {
                 </div>
               </div>
             </div>
-            <EmployeeList />
+            <EmployeeContextProvider>
+              <EmployeeList />
+            </EmployeeContextProvider>
+
           </div>
         </div>
       </div>
