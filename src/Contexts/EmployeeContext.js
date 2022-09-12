@@ -19,7 +19,7 @@ const EmployeeContextProvider = (props) => {
     }
 
     return (
-        <EmployeeContext.Provider value={{employees}}>
+        <EmployeeContext.Provider value={{employees , addEmployee}}>
             {props.children}
         </EmployeeContext.Provider>
     )
