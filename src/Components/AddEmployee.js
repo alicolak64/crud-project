@@ -1,13 +1,32 @@
+import { useState , useContext } from 'react'
 import { Button, Form } from "react-bootstrap"
 
-const AddEmployee = () => {
+import { EmployeeContext } from '../Contexts/EmployeeContext'
+
+const AddEmployee = (props) => {
+
+  const { addEmployee } = useContext(EmployeeContext)
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [address, setAddress] = useState('')
+  const [phone, setPhone] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    addEmployee(name, email, address, phone)
+    props.handleClose()
+  }
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"
           placeholder="Enter Name"
+          value = {name}
+          onChange = {(e) => setName(e.target.value)}
           required
         />
       </Form.Group>
@@ -19,6 +38,8 @@ const AddEmployee = () => {
         <Form.Control
           type="email"
           placeholder="Enter Email"
+          value = {email}
+          onChange = {(e) => setEmail(e.target.value)}
           required
         />
       </Form.Group>
@@ -31,6 +52,8 @@ const AddEmployee = () => {
           as="textarea"
           placeholder="Enter Address"
           rows={3}
+          value = {address}
+          onChange = {(e) => setAddress(e.target.value)}
         />
       </Form.Group>
 
@@ -39,6 +62,8 @@ const AddEmployee = () => {
         <Form.Control
           type="text"
           placeholder="Enter Phone"
+          value = {phone}
+          onChange = {(e) => setPhone(e.target.value)}
         />
       </Form.Group>
 
@@ -46,7 +71,12 @@ const AddEmployee = () => {
       <br />
 
       <div className="d-grid gap-2">
-        <Button variant="success" type="submit" size="lg" >
+        <Button 
+        variant="success" 
+        type="submit" 
+        size="lg" 
+        
+        >
           Add New Employee
         </Button>
       </div>
