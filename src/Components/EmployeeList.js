@@ -60,7 +60,9 @@ const EmployeeList = () => {
                     <Modal.Title>Add Employee</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AddEmployee />
+                    <AddEmployee
+                        handleClose = {handleClose}
+                     />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button 
