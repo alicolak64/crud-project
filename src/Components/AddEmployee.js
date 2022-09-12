@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap"
 
 import { EmployeeContext } from '../Contexts/EmployeeContext'
 
-const AddEmployee = (props) => {
+const AddEmployee = () => {
 
   const { addEmployee } = useContext(EmployeeContext)
 
@@ -15,7 +15,6 @@ const AddEmployee = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     addEmployee(name, email, address, phone)
-    props.handleClose()
   }
 
   return (
