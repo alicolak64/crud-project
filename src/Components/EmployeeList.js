@@ -76,13 +76,12 @@ const EmployeeList = () => {
                     <Modal.Title>Add Employee</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AddEmployee
-                        handleClose={handleClose}
-                    />
+                    <AddEmployee />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button
                         variant="secondary"
+                        onClick={handleClose}
                     >
                         Close
                     </Button>
