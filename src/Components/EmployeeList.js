@@ -1,4 +1,4 @@
-import { useState , useEffect , useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Button, Modal } from 'react-bootstrap';
 
 import { EmployeeContext } from '../Contexts/EmployeeContext'
@@ -38,7 +38,7 @@ const EmployeeList = () => {
                             className="btn btn-success text-white"
                             data-toggle="modal"
                             onClick={handleShow}
-                            >
+                        >
                             <i className="material-icons">&#xE147;</i>
                             <span>Add New Employee</span>
                         </Button>
@@ -57,22 +57,32 @@ const EmployeeList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <Employee employees={employees} />
+
+                    {
+                        employees.map(
+                            (employee) => (
+                                <tr key={employee.id}>
+                                    <Employee employee={employee} />
+                                </tr>
+                            )
+                        )
+                    }
+
                 </tbody>
             </table>
 
-            <Modal show={show} onHide = {handleClose}>
-                <Modal.Header className='modal-header'closeButton >
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header className='modal-header' closeButton >
                     <Modal.Title>Add Employee</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <AddEmployee
-                        handleClose = {handleClose}
-                     />
+                        handleClose={handleClose}
+                    />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button 
-                    variant="secondary"
+                    <Button
+                        variant="secondary"
                     >
                         Close
                     </Button>
