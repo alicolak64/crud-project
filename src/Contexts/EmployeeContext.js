@@ -1,4 +1,4 @@
-import { createContext , useState } from "react";
+import { createContext, useState } from "react";
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -22,8 +22,12 @@ const EmployeeContextProvider = (props) => {
         setEmployees(employees.filter(employee => employee.id !== id))
     }
 
+    const editEmployee = (id, editedEmployee) => {
+        setEmployees(employees.map(employee => employee.id === id ? editedEmployee : employee))
+    }
+
     return (
-        <EmployeeContext.Provider value={{employees , addEmployee , deleteEmployee}}>
+        <EmployeeContext.Provider value={{ employees, addEmployee, deleteEmployee, editEmployee }}>
             {props.children}
         </EmployeeContext.Provider>
     )
