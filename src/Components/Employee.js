@@ -1,10 +1,25 @@
-import { useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
+
+import { Button, Modal } from 'react-bootstrap';
 
 import { EmployeeContext } from '../Contexts/EmployeeContext'
+import EditEmployee from './EditEmployee';
 
 const Employee = ({ employee }) => {
 
     const { deleteEmployee } = useContext(EmployeeContext)
+
+    const [show, setShow] = useState(false)
+
+    useEffect(() => {
+        handleClose()
+    }, [employee])
+
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
 
     return (
 
@@ -20,6 +35,7 @@ const Employee = ({ employee }) => {
                 <button
                     className="btn text-warning btn-act"
                     data-toggle="modal"
+                    onClick={handleShow}
                 >
                     <i
                         className="material-icons"
@@ -43,6 +59,26 @@ const Employee = ({ employee }) => {
                     </i>
                 </button>
             </td>
+
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header className='modal-header' closeButton >
+                    <Modal.Title>Edit Employee</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <EditEmployee
+                        employee={employee}
+                    />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button
+                        variant="secondary"
+                        onClick={handleClose}
+                    >
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
 
 
 
