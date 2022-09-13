@@ -12,12 +12,12 @@ import AddEmployee from './AddEmployee';
 const EmployeeList = () => {
 
 
-    const { employees } = useContext(EmployeeContext)
+    const { sortedEmployees } = useContext(EmployeeContext)
     const [show, setShow] = useState(false)
 
     useEffect(() => {
         handleClose()
-    }, [employees])
+    }, [sortedEmployees])
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -59,8 +59,9 @@ const EmployeeList = () => {
                 <tbody>
 
                     {
-                        employees.sort((a, b) => a.name.localeCompare(b.name)).map(
-                            (employee) => (
+
+                        sortedEmployees.map(
+                            employee => (
                                 <tr key={employee.id}>
                                     <Employee employee={employee} />
                                 </tr>
