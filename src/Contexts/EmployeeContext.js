@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createContext, useState } from "react";
 
 import { v4 as uuidv4 } from 'uuid';
@@ -14,18 +15,30 @@ const EmployeeContextProvider = (props) => {
         { id: uuidv4(), name: 'Martin Blank', email: 'martinblank@mail.com', address: 'Via Monte Bianco 34, Turin, Italy', phone: '(480) 631-2097' }
     ])
 
+    useEffect (() => {
+        const localEmployees = localStorage.getItem('employees')
+        setEmployees(JSON.parse(localEmployees))
+        console.log(JSON.parse(localEmployees))
+    }, [])
+
     const sortedEmployees = employees.sort((a, b) => a.name.localeCompare(b.name))
 
     const addEmployee = (name, email, address, phone) => {
-        setEmployees([...employees, { id: uuidv4(), name, email, address, phone }])
+        const newEmployees = [...employees, { id: uuidv4(), name, email, address, phone }]
+        localStorage.setItem('employees', JSON.stringify(newEmployees))  
+        setEmployees(newEmployees)
     }
 
     const deleteEmployee = (id) => {
-        setEmployees(employees.filter(employee => employee.id !== id))
+        const newEmployees = employees.filter(employee => employee.id !== id)
+        localStorage.setItem('employees', JSON.stringify(newEmployees))
+        setEmployees(newEmployees)
     }
 
     const editEmployee = (id, editedEmployee) => {
-        setEmployees(employees.map(employee => employee.id === id ? editedEmployee : employee))
+        const newEmployees = employees.map(employee => (employee.id === id ? editedEmployee : employee))
+        localStorage.setItem('employees', JSON.stringify(newEmployees))
+        setEmployees(newEmployees)
     }
 
     return (
