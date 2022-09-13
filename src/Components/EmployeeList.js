@@ -79,11 +79,11 @@ const EmployeeList = () => {
             </table>
 
             <Pagintaion
-            pages = {totalPages}
-            currentPage = {currentPage}
-            setCurrentPage = {setCurrentPage}
-            currentEmployeesLength = {currentEmployees.length}
-            sortedEmployeesLength = {sortedEmployees.length}
+                pages={totalPages}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                currentEmployeesLength={currentEmployees.length}
+                sortedEmployeesLength={sortedEmployees.length}
             />
 
             <Modal show={show} onHide={handleClose}>

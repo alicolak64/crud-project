@@ -1,5 +1,5 @@
 
-const Pagintaion = ({ pages, currentPage, setCurrentPage , currentEmployeesLength , sortedEmployeesLength }) => {
+const Pagintaion = ({ pages, currentPage, setCurrentPage, currentEmployeesLength, sortedEmployeesLength }) => {
 
 
     const numOfPages = []

@@ -34,7 +34,7 @@ const EditEmployee = (props) => {
         // editEmployee(props.employee.id, editedEmployee)
         dispatch({
             type: 'EDIT_EMPLOYEE',
-            id : props.employee.id,
+            id: props.employee.id,
             editedEmployee: editedEmployee
         })
     }

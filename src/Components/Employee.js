@@ -57,12 +57,12 @@ const Employee = ({ employee }) => {
                     <button
                         className="btn text-danger btn-act"
                         onClick={
-                            () => 
-                            // deleteEmployee(employee.id)
-                            dispatch({
-                                type: 'DELETE_EMPLOYEE',
-                                id: employee.id
-                            })
+                            () =>
+                                // deleteEmployee(employee.id)
+                                dispatch({
+                                    type: 'DELETE_EMPLOYEE',
+                                    id: employee.id
+                                })
                         }
                     >
                         <i className="material-icons">

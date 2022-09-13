@@ -35,8 +35,8 @@ const AddEmployee = () => {
         <Form.Control
           type="text"
           placeholder="Enter Name"
-          value = {name}
-          onChange = {(e) => setName(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
         />
       </Form.Group>
@@ -48,8 +48,8 @@ const AddEmployee = () => {
         <Form.Control
           type="email"
           placeholder="Enter Email"
-          value = {email}
-          onChange = {(e) => setEmail(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </Form.Group>
@@ -62,8 +62,8 @@ const AddEmployee = () => {
           as="textarea"
           placeholder="Enter Address"
           rows={3}
-          value = {address}
-          onChange = {(e) => setAddress(e.target.value)}
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
         />
       </Form.Group>
 
@@ -72,8 +72,8 @@ const AddEmployee = () => {
         <Form.Control
           type="text"
           placeholder="Enter Phone"
-          value = {phone}
-          onChange ={(e) => setPhone(e.target.value)}
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
         />
       </Form.Group>
 

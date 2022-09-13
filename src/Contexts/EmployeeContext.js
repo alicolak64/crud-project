@@ -1,4 +1,4 @@
-import { createContext , useReducer } from "react";
+import { createContext, useReducer } from "react";
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -26,7 +26,7 @@ const EmployeeContextProvider = (props) => {
                     email: action.employee.email,
                     address: action.employee.address,
                     phone: action.employee.phone
-                } ]
+                }]
 
                 localStorage.setItem('employees', JSON.stringify(newAddEmployees))
 
@@ -37,21 +37,21 @@ const EmployeeContextProvider = (props) => {
                 const newDeleteEmployees = employees.filter(employee => employee.id !== action.id)
 
                 localStorage.setItem('employees', JSON.stringify(newDeleteEmployees))
-                
+
                 return newDeleteEmployees
-                
+
             case 'EDIT_EMPLOYEE':
 
                 const newEditEmployees = employees.map(employee => employee.id === action.id ? action.editedEmployee : employee)
-                
+
                 localStorage.setItem('employees', JSON.stringify(newEditEmployees))
-                
+
                 return newEditEmployees
-            
+
             default:
 
                 return employees
-                
+
         }
     }
 
@@ -62,7 +62,7 @@ const EmployeeContextProvider = (props) => {
 
     // const [state , dispatch] = useReducer(reducer , initialState , optinalInitalState)
 
-    const [ employees , dispatch ] = useReducer ( reducer , initialState , getEmployess )
+    const [employees, dispatch] = useReducer(reducer, initialState, getEmployess)
 
 
 
