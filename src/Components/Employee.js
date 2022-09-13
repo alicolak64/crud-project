@@ -7,7 +7,9 @@ import EditEmployee from './EditEmployee';
 
 const Employee = ({ employee }) => {
 
-    const { deleteEmployee } = useContext(EmployeeContext)
+    // const { deleteEmployee } = useContext(EmployeeContext)
+
+    const { dispatch } = useContext(EmployeeContext)
 
     const [show, setShow] = useState(false)
 
@@ -54,7 +56,14 @@ const Employee = ({ employee }) => {
                     }>
                     <button
                         className="btn text-danger btn-act"
-                        onClick={() => deleteEmployee(employee.id)}
+                        onClick={
+                            () => 
+                            // deleteEmployee(employee.id)
+                            dispatch({
+                                type: 'DELETE_EMPLOYEE',
+                                id: employee.id
+                            })
+                        }
                     >
                         <i className="material-icons">
                             &#xE872;

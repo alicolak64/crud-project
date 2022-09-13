@@ -6,7 +6,9 @@ import { EmployeeContext } from '../Contexts/EmployeeContext'
 
 const EditEmployee = (props) => {
 
-    const { editEmployee } = useContext(EmployeeContext)
+    // const { editEmployee } = useContext(EmployeeContext)
+
+    const { dispatch } = useContext(EmployeeContext)
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -29,7 +31,12 @@ const EditEmployee = (props) => {
             address,
             phone
         }
-        editEmployee(props.employee.id, editedEmployee)
+        // editEmployee(props.employee.id, editedEmployee)
+        dispatch({
+            type: 'EDIT_EMPLOYEE',
+            id : props.employee.id,
+            editedEmployee: editedEmployee
+        })
     }
 
     return (

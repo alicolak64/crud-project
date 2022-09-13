@@ -15,7 +15,7 @@ const EmployeeList = () => {
     const { sortedEmployees } = useContext(EmployeeContext)
     const [show, setShow] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
-    const [employeesPerPage] = useState(2)
+    const [employeesPerPage] = useState(5)
 
     useEffect(() => {
         handleClose()
